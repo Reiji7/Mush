@@ -4,6 +4,8 @@ package joueur;
 /**
  *
  */
-public class Mush {
+public abstract class Mush extends Joueur{
 
+	
+	
 }
