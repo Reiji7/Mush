@@ -1,6 +1,7 @@
 package joueur;
 
 import config.Utilitaire;
+import joueur.actions.Action;
 import objet.Objet;
 
 /**
@@ -11,11 +12,18 @@ public abstract class Joueur {
 	private int pv, pm, pmo;
 	private Objet[] inventaire = new Objet[3];
 	private Action[] actions;
-
 	
+	
+	/**
+	 * Effectue l'ation séléctionner par le joueur
+	 */
 	public void action() {
-		if(this.actions[listeActions()].disponible()) {
-			
+		int i = listeActions();
+		if(this.actions[i].disponible()) {
+			this.actions[i].action();
+		}
+		else {
+			action();
 		}
 	}
 	
