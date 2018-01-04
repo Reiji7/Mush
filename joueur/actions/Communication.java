@@ -4,8 +4,13 @@ import config.Static;
 import config.Utilitaire;
 import joueur.Joueur;
 
-public class Communication implements Action{
+public class Communication extends Action{
 
+	
+	public Communication() {
+		nom = "Communication";
+	}
+	
 	@Override
 	public boolean disponible() {
 		// TODO Auto-generated method stub

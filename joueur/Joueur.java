@@ -9,7 +9,13 @@ import objet.Objet;
  */
 public abstract class Joueur {
 	
-	private int pv, pm, pmo;
+	private int pv = 12;
+	private int pa = 12;
+	private int pm = 14;
+	private int pmo = 7;
+	
+	protected String nom;
+	private String type = "Humain";
 	private Objet[] inventaire = new Objet[3];
 	private Action[] actions;
 	
@@ -50,4 +56,92 @@ public abstract class Joueur {
 
 		return Utilitaire.sc.nextInt();
 	}
+
+
+	/**
+	 * Modification des points de vie
+	 * @param pv
+	 */
+	public void modifiePv(int pv) {
+		this.pv += pv;
+		if(this.pv > 14) {
+			this.pv = 14;
+		}
+		else if(this.pv < 1) {
+			//	Mort
+		}
+	}
+
+
+	/**
+	 * Modification des points d'action
+	 * @param pa
+	 */
+	public void modifiePa(int pa) {
+		this.pa += pa;
+		if(this.pa > 12) {
+			this.pa = 12;
+		}
+		else if(this.pa < 1) {
+			this.pa = 0;
+		}
+	}
+
+
+	/**
+	 * Modification des points de mouvement
+	 * @param pm
+	 */
+	public void modifiePm(int pm) {
+		this.pm += pm;
+		if(this.pm > 12) {
+			this.pm = 12;
+		}
+		else if(this.pm < 1) {
+			this.pm = 0;
+		}
+	}
+
+
+	/**
+	 * Modification des points de moral
+	 * @param pmo
+	 */
+	public void modifiePmo(int pmo) {
+		this.pmo += pmo;
+		if(this.pmo > 14) {
+			this.pmo = 14;
+		}
+		else if(this.pmo < 1) {
+			this.pmo = 0;
+		}
+	}
+	
+	
+	
+	public String toString() {
+		int index = 0;
+		String s = nom + "\n"
+				+ "Point(s) de vie:\t" + pv
+				+ "\nPoint(s) d'action:\t" + pa
+				+ "\nPoint(s) de mouvement:\t" + pm
+				+ "\nPoint(s) de moral:\t" + pmo
+				+ "\nInventaire:";
+		
+		while(inventaire[index] != null) {
+			s += "\t" + inventaire[index].getNom() + "\n";
+			index++;
+		}
+		index = 0;
+		
+		s += "\n" + type;
+
+		while(inventaire[index] != null) {
+			s += "\t" + actions[index].getNom() +"\n";
+			index++;
+		}
+		
+		return s;
+	}
+	
 }
