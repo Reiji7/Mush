@@ -1,5 +1,7 @@
 package joueur.actions;
 
+import joueur.Joueur;
+
 public abstract class Action {
 
 	private boolean disponible;
@@ -12,7 +14,7 @@ public abstract class Action {
 		return this.disponible;
 	}
 	
-	public void action() {
+	public void action(Joueur j) {
 		
 	}
 	

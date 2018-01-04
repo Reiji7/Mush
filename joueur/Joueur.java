@@ -20,10 +20,10 @@ public abstract class Joueur {
 	public void action() {
 		int i = listeActions();
 		if(this.actions[i].disponible()) {
-			this.actions[i].action();
+			this.actions[i].action(this);
 		}
 		else {
-			action();
+			this.action();
 		}
 	}
 	
