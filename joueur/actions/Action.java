@@ -2,20 +2,13 @@ package joueur.actions;
 
 import joueur.Joueur;
 
-public abstract class Action {
+public interface Action {
 
-	private boolean disponible;
-	
 	/**
 	 * Si l'action est disponible 
-	 * @return disponible
 	 */
-	public boolean disponible() {
-		return this.disponible;
-	}
+	public boolean disponible();
 	
-	public void action(Joueur j) {
-		
-	}
+	public void action(Joueur j);
 	
 }
