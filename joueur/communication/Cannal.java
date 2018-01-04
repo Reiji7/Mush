@@ -10,7 +10,7 @@ public class Cannal {
 	private String cannal;
 	
 	
-	private Cannal() {
+	public Cannal() {
 		this.cannal = new String();
 	}
 
@@ -32,5 +32,10 @@ public class Cannal {
 	}
 	
 	
-	
+	/**
+	 * 	Affichage du cannal de discution
+	 */
+	public void affichage() {
+		System.out.println(this.cannal);
+	}
 }
