@@ -8,7 +8,7 @@ public enum ListObjets {
 	SAVON(4),
 	TABLIER(5),
 	TROTINETTE(6),
-	EXTEINCTEUR(7),
+	EXTINCTEUR(7),
 	COUTEAU(8),
 	BLASTER(9),
 	GRENADE(10),

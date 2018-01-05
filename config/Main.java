@@ -12,7 +12,7 @@ public class Main {
 		
 		Objet test = new Molette();
 		
-		//System.out.println(test.toString());
+		System.out.println(test.toString());
 		
 	}
 
