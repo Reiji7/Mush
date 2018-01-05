@@ -249,13 +249,14 @@ public abstract class Joueur {
 					s += "\t" + inventaire[index].getNom() + "\n";
 				}
 			}
-		/*
-			for(int index = 0; index < inventaire.length; index++) {
-				if(inventaire[index] != null) {
-					s += "\t" + actions[index].getNom() +"\n";
+
+			try {
+				for (Action a : this.actions) {
+					s += "\t" + a.getNom() +"\n";
 				}
 			}
-		*/
+			catch(java.lang.NullPointerException e) {}
+
 				
 		s += "\n________________________________";
 		

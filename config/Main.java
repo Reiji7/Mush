@@ -10,9 +10,6 @@ public class Main {
 		Joueur WangChao = new WangChao();
 		System.out.println(WangChao);
 		
-		Objet test = new Molette();
-		System.out.println(test.toString());
-		
 	}
 
 }
