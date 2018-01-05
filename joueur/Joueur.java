@@ -3,6 +3,8 @@ package joueur;
 import config.Utilitaire;
 import joueur.actions.Action;
 import objet.Objet;
+import vaisseau.Salle;
+
 
 /**
  *	
@@ -14,8 +16,10 @@ public abstract class Joueur {
 	private int pm = 14;
 	private int pmo = 7;
 	
+	private Salle salle;
 	protected String nom;
 	private String type = "Humain";
+	
 	private Objet[] inventaire = new Objet[3];
 	private Action[] actions;
 	
@@ -121,7 +125,8 @@ public abstract class Joueur {
 	
 	public String toString() {
 		int index = 0;
-		String s = nom + "\n"
+		String s = "________________________________\n"
+				+ nom + "\n"
 				+ "Point(s) de vie:\t" + pv
 				+ "\nPoint(s) d'action:\t" + pa
 				+ "\nPoint(s) de mouvement:\t" + pm
@@ -140,6 +145,8 @@ public abstract class Joueur {
 			s += "\t" + actions[index].getNom() +"\n";
 			index++;
 		}
+		
+		s += "\n________________________________";
 		
 		return s;
 	}
