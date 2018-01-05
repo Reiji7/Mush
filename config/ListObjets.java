@@ -2,6 +2,7 @@ package config;
 
 public enum ListObjets {
 
+	VIDE(0),
 	MOLETTE(1),
 	COMMBINAISON(2),
 	GANTS(3),
@@ -19,7 +20,8 @@ public enum ListObjets {
 	CHAT(15),
 	RATION(16),
 	EXTRACTEUR(17),
-	SERUM(18);
+	SERUM(18),
+	SPORE(19);
 	
 	
 	private int id;
