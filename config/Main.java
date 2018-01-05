@@ -11,7 +11,6 @@ public class Main {
 		System.out.println(WangChao);
 		
 		Objet test = new Molette();
-		
 		System.out.println(test.toString());
 		
 	}
