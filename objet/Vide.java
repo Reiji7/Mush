@@ -13,7 +13,7 @@ public class Vide extends Objet{
 	public Vide() {
 		
 		// Définit le nom de l'objet 
-		this.setNom("Objet vide");
+		this.setNom("Vide");
 		
 		// Définit l'id de l'objet
 		this.setId(ListObjets.VIDE.getID());

@@ -13,7 +13,6 @@ public class Communication extends Action{
 	
 	@Override
 	public boolean disponible() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
