@@ -1,7 +1,9 @@
 package joueur;
 
+import java.util.ArrayList;
+
 import config.Utilitaire;
-import joueur.actions.Action;
+import joueur.actions.*;
 import objet.Objet;
 import objet.Vide;
 import vaisseau.Salle;
@@ -23,7 +25,16 @@ public abstract class Joueur {
 	private boolean vie = true;
 	
 	private Objet[] inventaire = new Objet[3];
-	private Action[] actions;
+	private ArrayList<Action> actions;
+	
+	public Joueur() {
+		this.inventaire[0] = new Vide();
+		this.inventaire[1] = new Vide();
+		this.inventaire[2] = new Vide();
+	}
+	
+	
+	
 	
 	
 	/**
@@ -48,6 +59,19 @@ public abstract class Joueur {
 		 * trouver d'objet vide on renvoie le code -1
 		 */
 		return -1;
+	}
+	
+	
+	/**
+	 * Depot d'objet dans l'inventaire
+	 * @param obj
+	 */
+	public void ajout(Objet obj) {
+		int index  = place();
+		
+		if(index != -1) {
+			inventaire[index] = obj;
+		}
 	}
 	
 	
@@ -108,9 +132,9 @@ public abstract class Joueur {
 		int i = listeActions();		// Séléction de l'action a effectuer
 		
 		// Si l'action saisi est disponible
-		if(this.actions[i].disponible()) {
+		if(actions.get(i).disponible()) {
 			// Alors on l'execute
-			this.actions[i].action(this);
+			actions.get(i).action(this);
 		}
 	}
 	
@@ -121,14 +145,16 @@ public abstract class Joueur {
 	 */
 	private int listeActions() {
 		
+		int index = 1;
+		
 		// Pacours des actions disponibles
-		for (int index = 0; index < this.actions.length; index++) {
+		for (Action a : this.actions) {
 			
 			// Affichage des actions et de leurs indices
-			System.out.print(index + ": " + this.actions[index]);
+			System.out.print(index + ": " + a.getNom());
 			
-			// Si l'ction courante est disponible 
-			if(this.actions[index].disponible()) {
+			// Si l'action courante est disponible 
+			if(a.disponible()) {
 				// On passe a la ligne suivante
 				System.out.println();
 			}
@@ -136,13 +162,14 @@ public abstract class Joueur {
 				// Sinon on précise quel n'est pas disponible
 				System.out.println(" (indisponible)");
 			}
+			index++;
 		}
 
 		// On demande l'action souhaiter
 		System.out.print("/nSélectionner l'action a effectué:/t");
 
 		// Puis on la retourne
-		return Utilitaire.sc.nextInt();
+		return Utilitaire.sc.nextInt()-1;
 	}
 
 
@@ -208,28 +235,28 @@ public abstract class Joueur {
 	
 	
 	public String toString() {
-		int index = 0;
 		String s = "________________________________\n"
 				+ nom + "\n"
 				+ "Point(s) de vie:\t" + pv
 				+ "\nPoint(s) d'action:\t" + pa
 				+ "\nPoint(s) de mouvement:\t" + pm
 				+ "\nPoint(s) de moral:\t" + pmo
-				+ "\nInventaire:";
+				+ "\n" + type
+				+ "\nInventaire:\n";
 		
-		while(inventaire[index] != null) {
-			s += "\t" + inventaire[index].getNom() + "\n";
-			index++;
-		}
-		index = 0;
-		
-		s += "\n" + type;
-
-		while(inventaire[index] != null) {
-			s += "\t" + actions[index].getNom() +"\n";
-			index++;
-		}
-		
+			for(int index = 0; index < inventaire.length; index++) {
+				if(inventaire[index] != null) {
+					s += "\t" + inventaire[index].getNom() + "\n";
+				}
+			}
+		/*
+			for(int index = 0; index < inventaire.length; index++) {
+				if(inventaire[index] != null) {
+					s += "\t" + actions[index].getNom() +"\n";
+				}
+			}
+		*/
+				
 		s += "\n________________________________";
 		
 		return s;
