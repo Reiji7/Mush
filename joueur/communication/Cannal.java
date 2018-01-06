@@ -7,28 +7,36 @@ package joueur.communication;
  */
 public class Cannal {
 
-	private String cannal;
+	private String[] cannal;
 	
 	
 	public Cannal() {
-		this.cannal = new String();
+		this.cannal = new String[10];
 	}
-
-
-	/**
-	 * @return le cannal
-	 */
-	public String getCannal() {
-		return cannal;
+	
+	
+	private void decalage(){
+		
+	    int courant=0, suivant=0;
+		String temp;
+	    String tampon=cannal[cannal.length-1];
+	    for (courant=0; courant < cannal.length; courant+=2){
+	        suivant = (courant+1) % cannal.length;
+	        temp = cannal[suivant];
+	        cannal[suivant]=cannal[courant];
+	        cannal[courant]=tampon;
+	        tampon = temp;
+	    }
 	}
-
-
+	
+	
 	/**
 	 * Ajoute une communication au cannal
 	 * @param com : ligne ajouter au cannal de discution
 	 */
 	public void add(String com) {
-		this.cannal += com + "/n";
+		decalage();
+		this.cannal[0]= com + "/n";
 	}
 	
 	
