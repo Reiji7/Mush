@@ -11,6 +11,7 @@ import objet.Objet;
 public abstract class Salle {
 	
 	protected String nom;
+	private int id;
 
 	private ArrayList<Salle> portes;
 	private ArrayList<Action> actions;
@@ -56,6 +57,22 @@ public abstract class Salle {
 
 	public void addInventaire(Objet obj) {
 		this.inventaire.add(obj);
+	}
+
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

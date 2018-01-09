@@ -30,7 +30,6 @@ public enum ListSalles {
 	MOTEUR(46),
 	TBETA3(45);
 	
-	
 	private int id;
 	
 	private ListSalles(int id) {
