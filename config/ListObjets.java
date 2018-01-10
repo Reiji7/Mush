@@ -21,8 +21,13 @@ public enum ListObjets {
 	RATION(16),
 	EXTRACTEUR(17),
 	SERUM(18),
-	SPORE(19);
+	SPORE(19),
+	ARMURE(20),
+	TROTTINETTE(21),
+	BLASTERS(22);
 	
+	
+
 	
 	private int id;
 	
