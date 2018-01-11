@@ -10,7 +10,7 @@ public class Communication extends Action{
 	public Communication() {
 		nom = "Communication";
 	}
-	
+
 	@Override
 	public boolean disponible() {
 		return true;
@@ -19,20 +19,19 @@ public class Communication extends Action{
 	@Override
 	public void action(Joueur j) {
 		Static.talkyWalky.affichage();
-		String reponse;
+		String reponse = "";
 		
 		do {
 			System.out.println("Voulez vous dire quelque chose dans le cannal de discution ? (oui / non)");
+
 			reponse = Utilitaire.sc.nextLine();
-			
-			if(reponse == "oui") {
-				Static.talkyWalky.add(Utilitaire.sc.nextLine());
+
+			if(reponse.equals("oui")) {
+				Static.talkyWalky.add(j.getNom() + ": " + Utilitaire.sc.nextLine());
 			}
 
 		}
-		while(reponse != "oui" || reponse != "non");
-
-
+		while(!reponse.equals("oui") && !reponse.equals("non"));
 	}
 
 
