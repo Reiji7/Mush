@@ -27,14 +27,16 @@ public abstract class Joueur {
 	private Objet[] inventaire = new Objet[3];
 	private ArrayList<Action> actions;
 	
+	
 	public Joueur() {
 		this.inventaire[0] = new Vide();
 		this.inventaire[1] = new Vide();
 		this.inventaire[2] = new Vide();
+		
+		this.actions = new ArrayList<>();
+		
+		actions.add(new Communication());
 	}
-	
-	
-	
 	
 	
 	/**
@@ -166,10 +168,16 @@ public abstract class Joueur {
 		}
 
 		// On demande l'action souhaiter
-		System.out.print("/nSélectionner l'action a effectué:/t");
+		System.out.print("\nSélectionner l'action a effectué:\t");
 
+		// On enregistre la réponse
+		int reponse = Utilitaire.sc.nextInt()-1;
+		
+		// On vide le buffer du scanner
+		Utilitaire.sc.nextLine();
+		
 		// Puis on la retourne
-		return Utilitaire.sc.nextInt()-1;
+		return reponse;
 	}
 
 
@@ -250,6 +258,8 @@ public abstract class Joueur {
 				}
 			}
 
+			s += "\nActions:\n";
+			
 			try {
 				for (Action a : this.actions) {
 					s += "\t" + a.getNom() +"\n";
@@ -263,4 +273,13 @@ public abstract class Joueur {
 		return s;
 	}
 	
+	
+	public String getNom() {
+		return nom;
+	}
+
+
+	public boolean isVie() {
+		return vie;
+	}	
 }
