@@ -1,7 +1,7 @@
 package config;
 
 import joueur.*;
-import objet.*;
+
 
 public class Main {
 
@@ -9,6 +9,10 @@ public class Main {
 		
 		Joueur WangChao = new WangChao();
 		System.out.println(WangChao);
+		
+		WangChao.action();
+		
+		Static.talkyWalky.affichage();
 		
 	}
 

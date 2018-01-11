@@ -3,7 +3,6 @@ package joueur.communication;
 /**
  * Cannal de communication pour les humains
  * @author adrien
- *
  */
 public class Cannal {
 
@@ -12,6 +11,9 @@ public class Cannal {
 	
 	public Cannal() {
 		this.cannal = new String[10];
+		for(int index = 0; index < cannal.length; index++) {
+			this.cannal[index] = "";
+		}
 	}
 	
 	
@@ -36,7 +38,7 @@ public class Cannal {
 	 */
 	public void add(String com) {
 		decalage();
-		this.cannal[0]= com + "/n";
+		this.cannal[0]= com + "\n";
 	}
 	
 	
@@ -44,6 +46,11 @@ public class Cannal {
 	 * 	Affichage du cannal de discution
 	 */
 	public void affichage() {
-		System.out.println(this.cannal);
+		for(int index = 0; index < cannal.length; index++) {
+			if(cannal[index] != "") {
+				System.out.println(this.cannal[index]);
+			}
+		}
 	}
+	
 }
