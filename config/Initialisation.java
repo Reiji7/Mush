@@ -29,8 +29,15 @@ public class Initialisation {
 		}
 		while(r2 == r1);
 		
-		//Joueurs.add(index, element);.get(r1);
+		Joueurs.add(r1, Joueurs.get(r1).toMush());
+		Joueurs.add(r2, Joueurs.get(r2).toMush());
 		
 		return Joueurs;
 	}
+	
+	
+	public static ArrayList<Joueur> initVaisseau(){
+		return null;
+	}
+	
 }
