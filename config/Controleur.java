@@ -7,11 +7,21 @@ import vaisseau.Salle;
 
 public class Controleur {
 	
-	private static ArrayList<Joueur> Joueurs = Initialisation.initJoueur();
-	private static ArrayList<Salle> Salles = Initialisation.initVaisseau();
+	private ArrayList<Joueur> Joueurs;
+	private ArrayList<Salle> Salles;
 	
-	public static void lancement() {
+	
+	public Controleur() {
+		System.out.println("Lancement...");
+		this.Joueurs = Initialisation.initJoueur();
+		this.Salles = Initialisation.initVaisseau();
+	}
+	
+	
+	public void lancement() {
 		for(Joueur j : Joueurs) {
+			System.out.println("____________________________________");
+			System.out.println(j.getNom() + " :\n");
 			j.action();
 		}
 			

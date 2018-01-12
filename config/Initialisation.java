@@ -14,6 +14,8 @@ public class Initialisation {
 	public static ArrayList<Joueur> initJoueur(){
 		ArrayList<Joueur> Joueurs = new ArrayList<>();
 		
+		System.out.println("Initialisation des personnages");
+		
 		Joueurs.add(new WangChao());
 		Joueurs.add(new EleeshaWilliams());
 		Joueurs.add(new FinolaKeegan());
@@ -27,18 +29,20 @@ public class Initialisation {
 		Joueurs.add(new PaolaRinaldo());
 		Joueurs.add(new ZhongChun());
 
+		System.out.println("Séléction des Mush");
+		
 		// Choix des deux Mush
-		int r1, r2;
-		r1 = (int) Math.random() * Joueurs.size();
+		int r1, r2 = 0;
+		r1 = (int) (Math.random() * Joueurs.size());
 		
 		do {
-			r2 = (int) Math.random() * Joueurs.size();
+			r2 = (int) (Math.random() * Joueurs.size());
 		}
 		while(r2 == r1);
 		
 		Joueurs.add(r1, Joueurs.get(r1).toMush());
 		Joueurs.add(r2, Joueurs.get(r2).toMush());
-		
+
 		return Joueurs;
 	}
 	
@@ -50,6 +54,8 @@ public class Initialisation {
 	public static ArrayList<Salle> initVaisseau(){
 		ArrayList<Salle> vaisseau = new ArrayList<>();
 
+		System.out.println("Initialisation des salles du vaisseau");
+		
 		// Initialise les autres salles
 		vaisseau.add(new Pont());
 		vaisseau.add(new TourelleAlphaAvant());
