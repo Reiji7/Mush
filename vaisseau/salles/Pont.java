@@ -8,7 +8,7 @@ public class Pont extends Salle{
 	
 	public Pont() {
 		this.nom = "Pont";
-		this.setId(ListSalles.PONT.getID()); 
+		this.setId(ListSalles.PONT.getID());
 	}
 
 }

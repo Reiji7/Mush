@@ -2,9 +2,15 @@ package config;
 
 import java.util.ArrayList;
 import joueur.*;
+import vaisseau.Salle;
+import vaisseau.salles.*;
 
 public class Initialisation {
 
+	/**
+	 * Initialisation de tous les joueurs
+	 * @return Liste de joueurs
+	 */
 	public static ArrayList<Joueur> initJoueur(){
 		ArrayList<Joueur> Joueurs = new ArrayList<>();
 		
@@ -21,6 +27,7 @@ public class Initialisation {
 		Joueurs.add(new PaolaRinaldo());
 		Joueurs.add(new ZhongChun());
 
+		// Choix des deux Mush
 		int r1, r2;
 		r1 = (int) Math.random() * Joueurs.size();
 		
@@ -36,7 +43,25 @@ public class Initialisation {
 	}
 	
 	
-	public static ArrayList<Joueur> initVaisseau(){
+	/**
+	 * Liste des salles
+	 * @return 
+	 */
+	public static ArrayList<Salle> initVaisseau(){
+		ArrayList<Salle> vaisseau = new ArrayList<>();
+
+		// Initialise les autres salles
+		vaisseau.add(new Pont());
+		vaisseau.add(new TourelleAlphaAvant());
+		vaisseau.add(new TourelleBetaAvant());
+		
+		// Ensuite il faut faire les liens entre les salles
+		// Pour le pont par exemple
+		vaisseau.get(0).addPortes(vaisseau.get(1));		// Ajout de la tourelle alpha avant au pont
+		vaisseau.get(0).addPortes(vaisseau.get(2));		// Ajout de la tourelle beta avant au pont
+		
+		
+		
 		return null;
 	}
 	

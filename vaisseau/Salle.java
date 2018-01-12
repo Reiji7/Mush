@@ -35,7 +35,7 @@ public abstract class Salle {
 	}
 
 
-	protected void addPortes(Salle porte) {
+	public void addPortes(Salle porte) {
 		this.portes.add(porte);
 	}
 
