@@ -21,7 +21,7 @@ public abstract class Joueur {
 	
 	private Salle salle;
 	protected String nom;
-	private String type = "Humain";
+	protected String type = "Humain";
 	private boolean vie = true;
 	
 	private Objet[] inventaire = new Objet[3];
@@ -266,8 +266,7 @@ public abstract class Joueur {
 				}
 			}
 			catch(java.lang.NullPointerException e) {}
-
-				
+	
 		s += "\n________________________________";
 		
 		return s;
@@ -281,5 +280,25 @@ public abstract class Joueur {
 
 	public boolean isVie() {
 		return vie;
-	}	
+	}
+
+
+	public Mush toMush() {
+		return new Mush(nom, pa, pa, pa, pa, salle, salle, inventaire, actions);
+	}
+
+	
+	public void setSalle(Salle salle) {
+		this.salle = salle;
+	}
+
+
+	public void setInventaire(Objet[] inventaire) {
+		this.inventaire = inventaire;
+	}
+
+
+	public void setActions(ArrayList<Action> actions) {
+		this.actions = actions;
+	}
 }
