@@ -22,7 +22,9 @@ public class Controleur {
 		for(Joueur j : Joueurs) {
 			System.out.println("____________________________________");
 			System.out.println(j.getNom() + " :\n");
-			j.action();
+			while(j.action()) {
+				
+			}
 		}
 			
 	}

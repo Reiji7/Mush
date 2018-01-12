@@ -37,6 +37,7 @@ public abstract class Joueur {
 		
 		actions.add(new Communication());
 		actions.add(new AffichageComm());
+		actions.add(new Passer());
 	}
 	
 	
@@ -130,15 +131,17 @@ public abstract class Joueur {
 	
 	/**
 	 * Effectue l'ation séléctionner par le joueur
+	 * @return 
 	 */
-	public void action() {
+	public boolean action() {
 		int i = listeActions();		// Séléction de l'action a effectuer
 		
 		// Si l'action saisi est disponible
 		if(actions.get(i).disponible()) {
 			// Alors on l'execute
-			actions.get(i).action(this);
+			return actions.get(i).action(this);
 		}
+		return true;
 	}
 	
 	

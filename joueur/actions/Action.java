@@ -17,9 +17,10 @@ public abstract class Action {
 		return disponible;
 	}
 	
-	public void action(Joueur j) {
+	public boolean action(Joueur j) {
 		// Ajout de l'action au tableau de bord
 		Static.Bord.add(j.getNom() + ": " + this.toString() + "\n");
+		return true;
 	}
 	
 	

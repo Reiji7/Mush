@@ -17,7 +17,7 @@ public class Communication extends Action{
 	}
 
 	@Override
-	public void action(Joueur j) {
+	public boolean action(Joueur j) {
 		Static.talkyWalky.affichage();
 		String reponse = "";
 		
@@ -33,5 +33,7 @@ public class Communication extends Action{
 
 		}
 		while(!reponse.equals("oui") && !reponse.equals("non"));
+		
+		return true;
 	}
 }

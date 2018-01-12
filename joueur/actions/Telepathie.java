@@ -16,7 +16,7 @@ public class Telepathie extends Action{
 	}
 
 	@Override
-	public void action(Joueur j) {
+	public boolean action(Joueur j) {
 		Static.telepathie.affichage();
 		String reponse = "";
 		
@@ -32,6 +32,8 @@ public class Telepathie extends Action{
 
 		}
 		while(!reponse.equals("oui") && !reponse.equals("non"));
+		
+		return true;
 	}
 	
 }
