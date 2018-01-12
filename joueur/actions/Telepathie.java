@@ -4,10 +4,9 @@ import config.Static;
 import config.Utilitaire;
 import joueur.Joueur;
 
-public class Communication extends Action{
+public class Telepathie extends Action{
 
-	
-	public Communication() {
+	public Telepathie() {
 		nom = "Communication";
 	}
 
@@ -18,7 +17,7 @@ public class Communication extends Action{
 
 	@Override
 	public void action(Joueur j) {
-		Static.talkyWalky.affichage();
+		Static.telepathie.affichage();
 		String reponse = "";
 		
 		do {
@@ -28,10 +27,11 @@ public class Communication extends Action{
 
 			if(reponse.equals("oui")) {
 				System.out.println("Que voulez-vous dire ?");
-				Static.talkyWalky.add(j.getNom() + ": " + Utilitaire.sc.nextLine());
+				Static.telepathie.add(j.getNom() + ": " + Utilitaire.sc.nextLine());
 			}
 
 		}
 		while(!reponse.equals("oui") && !reponse.equals("non"));
 	}
+	
 }

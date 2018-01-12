@@ -24,8 +24,8 @@ public abstract class Joueur {
 	protected String type = "Humain";
 	private boolean vie = true;
 	
-	private Objet[] inventaire = new Objet[3];
-	private ArrayList<Action> actions;
+	protected Objet[] inventaire = new Objet[3];
+	protected ArrayList<Action> actions;
 	
 	
 	public Joueur() {
