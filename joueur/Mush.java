@@ -1,8 +1,7 @@
 package joueur;
 
 import java.util.ArrayList;
-import joueur.actions.Action;
-import joueur.actions.Telepathie;
+import joueur.actions.*;
 import objet.Objet;
 import vaisseau.Salle;
 
@@ -25,6 +24,7 @@ public class Mush extends Joueur{
 		this.setActions(actions);
 		
 		this.actions.add(new Telepathie());
+		this.actions.add(new AffichageTele());
 	}
 	
 }

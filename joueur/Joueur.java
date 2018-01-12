@@ -36,6 +36,7 @@ public abstract class Joueur {
 		this.actions = new ArrayList<>();
 		
 		actions.add(new Communication());
+		actions.add(new AffichageComm());
 	}
 	
 	
