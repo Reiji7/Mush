@@ -1,5 +1,6 @@
 package joueur.actions;
 
+import config.Static;
 import joueur.Joueur;
 
 
@@ -17,7 +18,8 @@ public abstract class Action {
 	}
 	
 	public void action(Joueur j) {
-		
+		// Ajout de l'action au tableau de bord
+		Static.Bord.add(j.getNom() + ": " + this.toString() + "\n");
 	}
 	
 	
