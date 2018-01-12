@@ -27,6 +27,7 @@ public class Communication extends Action{
 			reponse = Utilitaire.sc.nextLine();
 
 			if(reponse.equals("oui")) {
+				System.out.println("Que voulez-vous dire ?");
 				Static.talkyWalky.add(j.getNom() + ": " + Utilitaire.sc.nextLine());
 			}
 
